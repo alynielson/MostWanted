@@ -209,3 +209,22 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
+
+function getDescendents(person, listOfDescendents) {
+  let personId = person.id;
+  let childrenList = data.filter(function(el){
+      if (el.parents.includes(personId)) {
+          return true;
+      } 
+  }) 
+  if (childrenList.length === 0) {
+      return listOfDescendents;
+  }
+  else {
+      listOfDescendents.push(childrenList);
+      for (let i=0; i<childrenList.length; i++) {
+          getDescendents(childrenList[i],listOfDescendents);
+      }
+      return listOfDescendents;    
+  }
+}
