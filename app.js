@@ -219,7 +219,9 @@ function displayPerson(person){
 function displayFamily(person){
   let famliyInfo = '#'
   if(person.currentSpouse){
-    famliyInfo += "spouse: " + getNamesFromIds(person.currentSpouse) + "\n";
+    let newArray = person.currentSpouse.split('')
+    famliyInfo += "spouse: " + person.currentSpouse + "\n";
+    return newArray.join()
   }
   if(person.parents){
     famliyInfo += "parents: " + getNamesFromIds(person.parents) + "\n"
