@@ -169,9 +169,10 @@ function mainMenu(person, people){
     displayFamily(person)
     break;
     case "descendants":
-    //let listOfDescendentIds = getDescendents(person,listOfDescendents);
-    // let listOfDescendentNames = getNamesFromIds(listOfDescendentIds);
-    // alert(listOfDescendentNames);
+    let listOfDescendents = [];
+    let listOfDescendentObjects = getDescendents(person,listOfDescendents);
+    let listOfDescendentNames = getNamesFromObject(listOfDescendentObjects);
+    alert(listOfDescendentNames);
     break;
     case "restart":
     app(people); // restart
@@ -282,4 +283,11 @@ function getNamesFromIds(listOfIds) {
       }
   });
   return listOfNamesFromIds;
+}
+
+function getNamesFromObject(array) {
+  let listOfNamesFromArray = array.map(function(el) {
+      return el.firstName + " " + el.lastName; 
+      });
+  return listOfNamesFromArray;
 }
