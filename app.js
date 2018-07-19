@@ -37,12 +37,11 @@ function searchByTraits(people) {
       filteredPeople = searchByGender(people);
       break;
     case "age":
-      filteredPeople = searchByGender(people);
+      filteredPeople = searchByAge(people);
       break;
     case "occupation":
       filteredPeople = searchByOccupation(people);
       break;
-    // so on and so forth
     default:
       alert("You entered an invalid search type! Please try again.");
       searchByTraits(people);
@@ -94,8 +93,11 @@ function searchByEyeColor(people) {
 function searchByAge(people) {
   let userInputAge = prompt("How old is the person?");
 
+
+
   let newArray = people.filter(function (el) {
-    if(el.age == userInputAge) {
+    el.dob = convertDobToAge(el.dob);
+    if(el.dob == userInputAge) {
       return true;
     }
   });
@@ -125,6 +127,24 @@ function searchByOccupation(people) {
 
   return newArray;
 }
+
+function convertDobToAge (dob) {
+  let dobInMilliseconds = Math.abs(Date.parse(dob));
+  let minute = 1000 * 60;
+  let hour = minute * 60;
+  let day = hour * 24;
+  let year = day * 365;
+
+  let yearsFromDobTo1970 = dobInMilliseconds / year;
+  let yearsSince1970 = Date.now()/year;
+
+  let age = Math.floor(yearsFromDobTo1970 + yearsSince1970);
+  return age;
+
+  
+}
+console.log(convertDobToAge("4/20/1939"));
+
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
