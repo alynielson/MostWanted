@@ -219,10 +219,10 @@ function displayPerson(person){
 function displayFamily(person){
   let famliyInfo = '#'
   if(person.currentSpouse){
-    famliyInfo += "spouse: " + person.currentSpouse + "\n";
+    famliyInfo += "spouse: " + getNamesFromIds(person.currentSpouse) + "\n";
   }
   if(person.parents){
-    famliyInfo += "parents: " + person.parents + "\n"
+    famliyInfo += "parents: " + getNamesFromIds(person.parents) + "\n"
   }
   alert(famliyInfo)
 }
