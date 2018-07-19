@@ -84,7 +84,7 @@ function searchByHeight(people) {
 }
 
 function searchByEyeColor(people) {
-  let userInputEyeColor = prompt("What is the person's eye color?");
+  let userInputEyeColor = prompt("What is the person's eye color?").toLowerCase();
 
   let newArray = people.filter(function (el) {
     if(el.eyeColor == userInputEyeColor) {
@@ -109,7 +109,7 @@ function searchByAge(people) {
 }
 
 function searchByGender(people) {
-  let userInputGender = prompt("What is the person's gender?");
+  let userInputGender = prompt("What is the person's gender?").toLowerCase();
 
   let newArray = people.filter(function (el) {
     if(el.gender == userInputGender) {
@@ -120,7 +120,7 @@ function searchByGender(people) {
   return newArray;
 }
 function searchByOccupation(people) {
-  let userInputOccupation = prompt("What is the person's occupation?");
+  let userInputOccupation = prompt("What is the person's occupation?").toLowerCase();
 
   let newArray = people.filter(function (el) {
     if(el.occupation == userInputOccupation) {
