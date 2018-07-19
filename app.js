@@ -169,8 +169,9 @@ function mainMenu(person, people){
     displayFamily(person)
     break;
     case "descendants":
-    let listOfDescendents = [];
-    getDescendents(person,listOfDescendents);
+    //let listOfDescendentIds = getDescendents(person,listOfDescendents);
+    // let listOfDescendentNames = getNamesFromIds(listOfDescendentIds);
+    // alert(listOfDescendentNames);
     break;
     case "restart":
     app(people); // restart
@@ -255,10 +256,24 @@ function getDescendents(person, listOfDescendents) {
       return listOfDescendents;
   }
   else {
-      listOfDescendents.push(childrenList);
+      for (let j=0; j< childrenList.length; j++){
+        listOfDescendents.push(childrenList[j]);  
+      }
       for (let i=0; i<childrenList.length; i++) {
           getDescendents(childrenList[i],listOfDescendents);
       }
       return listOfDescendents;    
   }
+}
+
+function getNamesFromIds(listOfIds) { 
+  let listOfNamesFromIds = listOfIds.map(function(el) {
+      for (let i=0; i<data.length; i++) {
+          if (el === data[i].id) {
+              el = data[i].firstName + " " + data[i].lastName;
+              return el;
+          }
+      }
+  });
+  return listOfNamesFromIds;
 }
