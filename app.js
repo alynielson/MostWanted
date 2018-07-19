@@ -93,8 +93,6 @@ function searchByEyeColor(people) {
 function searchByAge(people) {
   let userInputAge = prompt("How old is the person?");
 
-
-
   let newArray = people.filter(function (el) {
     el.dob = convertDobToAge(el.dob);
     if(el.dob == userInputAge) {
