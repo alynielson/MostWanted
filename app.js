@@ -72,7 +72,7 @@ function searchByWeight(people) {
 }
 
 function searchByHeight(people) {
-  let userInputHeight = prompt("How tall is the person");
+  let userInputHeight = prompt("How tall is the person (in inches)?");
 
   let newArray = people.filter(function (el) {
     if(el.height == userInputHeight) {
