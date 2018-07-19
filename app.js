@@ -166,7 +166,7 @@ function mainMenu(person, people){
     displayPerson(person)
     break;
     case "family":
-    // TODO: get person's family
+    displayFamily(person)
     break;
     case "descendants":
     let listOfDescendents = [];
@@ -213,6 +213,17 @@ function displayPerson(person){
   personInfo += "Eye Color: " + person.eyeColor + "\n";
   // TODO: finish getting the rest of the information to display
   alert(personInfo);
+}
+
+function displayFamily(person){
+  let famliyInfo = '#'
+  if(person.currentSpouse){
+    famliyInfo += "spouse: " + person.currentSpouse + "\n";
+  }
+  if(person.parents.length > 0){
+    famliyInfo += "parents: " + person.parents[0] + "\n"
+  }
+  alert(famliyInfo)
 }
 
 // function that prompts and validates user input
