@@ -172,7 +172,12 @@ function mainMenu(person, people){
     let listOfDescendents = [];
     let listOfDescendentObjects = getDescendents(person,listOfDescendents);
     let listOfDescendentNames = getNamesFromObject(listOfDescendentObjects);
-    alert(listOfDescendentNames);
+    if (listOfDescendentNames.length === 0) {
+      alert("This person has no descendants!");
+    }
+    else {
+      alert(listOfDescendentNames);
+    }
     break;
     case "restart":
     app(people); // restart
