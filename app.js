@@ -164,7 +164,6 @@ function mainMenu(person, people){
 }
 
 function searchByName(people){
-  debugger;
 let firstName = promptFor("What is the person's first name?", chars);
 let lastName = promptFor("What is the person's last name?", chars);
 let newArray = people.filter(function (el) {
