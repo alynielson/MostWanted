@@ -220,8 +220,8 @@ function displayFamily(person){
   if(person.currentSpouse){
     famliyInfo += "spouse: " + person.currentSpouse + "\n";
   }
-  if(person.parents.length > 0){
-    famliyInfo += "parents: " + person.parents[0] + "\n"
+  if(person.parents){
+    famliyInfo += "parents: " + person.parents + "\n"
   }
   alert(famliyInfo)
 }
