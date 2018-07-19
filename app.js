@@ -217,20 +217,23 @@ function displayPerson(person){
 }
 
 function displayFamily(person){
-  let famliyInfo = '#'
+  let familyInfo = '';
   if(person.currentSpouse){
     let spouseId = person.currentSpouse;
     for(i=0; i < data.length; i++){
       if(spouseId === data[i].id){
-        famliyInfo += "spouse: " + data[i].firstName + " " + data[i].lastName + "\n";
+        familyInfo += "spouse: " + data[i].firstName + " " + data[i].lastName + "\n";
       }
     }
     
   }
-  if(person.parents){
-    famliyInfo += "parents: " + getNamesFromIds(person.parents) + "\n"
+  if(person.parents.length > 0){
+    familyInfo += "parents: " + getNamesFromIds(person.parents) + "\n";
   }
-  alert(famliyInfo)
+  else{
+    familyInfo += "parents: Deceased"
+  }
+  alert(familyInfo);
 }
 
 // function that prompts and validates user input
