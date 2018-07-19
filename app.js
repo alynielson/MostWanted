@@ -35,6 +35,13 @@ function searchByTraits(people) {
       break;
     case "gender":
       filteredPeople = searchByGender(people);
+      break;
+    case "age":
+      filteredPeople = searchByGender(people);
+      break;
+    case "occupation":
+      filteredPeople = searchByOccupation(people);
+      break;
     // so on and so forth
     default:
       alert("You entered an invalid search type! Please try again.");
@@ -84,11 +91,34 @@ function searchByEyeColor(people) {
   return newArray;
 }
 
+function searchByAge(people) {
+  let userInputAge = prompt("How old is the person?");
+
+  let newArray = people.filter(function (el) {
+    if(el.age == userInputAge) {
+      return true;
+    }
+  });
+
+  return newArray;
+}
+
 function searchByGender(people) {
   let userInputGender = prompt("What is the person's gender?");
 
   let newArray = people.filter(function (el) {
     if(el.gender == userInputGender) {
+      return true;
+    }
+  });
+
+  return newArray;
+}
+function searchByOccupation(people) {
+  let userInputOccupation = prompt("What is the person's occupation?");
+
+  let newArray = people.filter(function (el) {
+    if(el.occupation == userInputOccupation) {
       return true;
     }
   });
