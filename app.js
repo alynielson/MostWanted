@@ -146,7 +146,7 @@ function convertDobToAge (dob) {
 
   
 }
-console.log(convertDobToAge("4/20/1939"));
+
 
 
 // Menu function to call once you find who you are looking for
