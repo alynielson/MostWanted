@@ -169,7 +169,8 @@ function mainMenu(person, people){
     // TODO: get person's family
     break;
     case "descendants":
-    // TODO: get person's descendants
+    let listOfDescendents = [];
+    getDescendents(person,listOfDescendents);
     break;
     case "restart":
     app(people); // restart
