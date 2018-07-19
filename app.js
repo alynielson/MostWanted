@@ -30,6 +30,9 @@ function searchByTraits(people) {
     case "weight":
       filteredPeople = searchByWeight(people);
       break;
+    case "eye color";
+      filteredPeople = searchByEyeColor(people);
+
     // so on and so forth
     default:
       alert("You entered an invalid search type! Please try again.");
@@ -50,7 +53,6 @@ function searchByWeight(people) {
     if(el.weight == userInputWeight) {
       return true;
     }
-    // return true if el.height matches userInputHeight
   });
 
   return newArray;
@@ -63,7 +65,18 @@ function searchByHeight(people) {
     if(el.height == userInputHeight) {
       return true;
     }
-    // return true if el.height matches userInputHeight
+  });
+
+  return newArray;
+}
+
+function searchByEyeColor(people) {
+  let userInputEyeColor = prompt("What is the person's eye color?");
+
+  let newArray = people.filter(function (el) {
+    if(el.eyeColor == userInputEyeColor) {
+      return true;
+    }
   });
 
   return newArray;
