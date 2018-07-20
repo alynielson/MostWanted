@@ -287,7 +287,7 @@ function displayFamily(person) {
   }
 
   let siblingsOfPerson = getSiblings(person); 
-  if (siblingsOfPerson.length >0) {
+  if (siblingsOfPerson.length) {
     familyInfo += "Siblings: ";
     for (let i = 0; i<siblingsOfPerson.length; i++) {
       familyInfo += siblingsOfPerson[i].firstName + " " + siblingsOfPerson[i].lastName + ", ";
