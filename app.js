@@ -270,7 +270,7 @@ function displayFamily(person) {
 
   }
   if (person.parents.length > 0) {
-    familyInfo += "Parents: " + getNamesFromIds(person.parents) + "\n";
+    familyInfo += "Parents: " + getNamesFromIds(person.parents).join(', ') + "\n";
   } else {
     familyInfo += "Parents: Deceased \n";
   }
@@ -284,6 +284,9 @@ function displayFamily(person) {
         familyInfo = familyInfo.slice(0,-2) + "\n";
       }
     }
+  }
+  else {
+    familyInfo += "None \n";
   }
 
   let siblingsOfPerson = getSiblings(person); 
