@@ -287,6 +287,9 @@ function displayFamily(person) {
     familyInfo += "Parents: Deceased";
     }
   }
+  else {
+    familyInfo += "None \n";
+  }
   
   let siblingsOfPerson = getSiblings(person);
   if (siblingsOfPerson.length >0) {
