@@ -53,10 +53,14 @@ function searchByTraits(people) {
       break;
   }
 
-  displayPeople(filteredPeople);  
-  //let foundPerson = filteredPeople[0];
-
-  //mainMenu(foundPerson, people);
+  if (filteredPeople.length === 1) {
+    let foundPerson = filteredPeople[0];
+    mainMenu(foundPerson, people);
+  }
+  else {
+    displayPeople(filteredPeople);
+    //searchByTraits(filteredPeople);
+  }
 
 }
 
