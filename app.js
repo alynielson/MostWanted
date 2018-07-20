@@ -255,8 +255,14 @@ function promptFor(question, valid) {
 
 // helper function to pass into promptFor to validate yes/no answers
 function yesNo(input) {
-  return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
+  if (input.toLowerCase() == "yes" || input.toLowerCase() == "no") {
+    return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
+  }
+  else {
+    alert("Wrong! Please enter 'yes' or 'no'.")
+  }
 }
+  
 
 // helper function to pass in as default promptFor validation
 function chars(input) {
