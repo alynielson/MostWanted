@@ -1,4 +1,3 @@
-
 function app(people) { 
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   let filteredPeople;
@@ -270,7 +269,7 @@ function displayFamily(person) {
 
   }
   if (person.parents.length > 0) {
-    familyInfo += "Parents: " + getNamesFromIds(person.parents) + "\n";
+    familyInfo += "Parents: " + getNamesFromIds(person.parents).join(', ') + "\n";
   } else {
     familyInfo += "Parents: Deceased \n";
   }
@@ -285,6 +284,9 @@ function displayFamily(person) {
       }
     }
   }
+  else {
+    familyInfo += "None \n";
+  }
 
   let siblingsOfPerson = getSiblings(person); 
   if (siblingsOfPerson.length) {
@@ -297,7 +299,7 @@ function displayFamily(person) {
     }
   }
   else {
-    familyInfo += "Siblings: none";
+    familyInfo += "Siblings: None";
   }
   alert(familyInfo);
 }
@@ -369,7 +371,7 @@ function getSiblings(person) {
     for (let i=0;i<person.parents.length;i++) {
       if (el.parents.includes(person.parents[i])) {
         return true;
-      } 
+      }
     }
   });
   let siblingsOfPerson = listOfSiblings.filter(function(el) {
