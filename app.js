@@ -3,7 +3,7 @@ Build all of your functions for displaying and gathering information below (GUI)
 */
 
 // app is the function called to start the entire application
-function app(people) {
+function app(people) { 
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
 
   switch (searchType) {
@@ -171,11 +171,10 @@ function mainMenu(person, people) {
     case "descendants":
       let listOfDescendents = [];
       let listOfDescendentObjects = getDescendents(person, listOfDescendents);
-      let listOfDescendentNames = getNamesFromObject(listOfDescendentObjects);
-      if (listOfDescendentNames.length === 0) {
+      if (listOfDescendentObjects.length === 0) {
         alert("This person has no descendants!");
       } else {
-        alert(listOfDescendentNames);
+        displayPeople(listOfDescendentObjects);
       }
       break;
     case "restart":
