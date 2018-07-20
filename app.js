@@ -272,11 +272,7 @@ function displayFamily(person) {
   if (person.parents.length > 0) {
     familyInfo += "Parents: " + getNamesFromIds(person.parents) + "\n";
   } else {
-<<<<<<< HEAD
-    familyInfo += "Parents: Deceased \n";
-=======
     familyInfo += "Parents: Deceased \n" 
->>>>>>> a93ac8a7d396463d4c5af6c58d3148abcdd22231
   }
 
   let listOfChildren = getChildren(person);
@@ -287,7 +283,6 @@ function displayFamily(person) {
       if (i+1 == listOfChildren.length) {
         familyInfo = familyInfo.slice(0,-2) + "\n";
       }
-<<<<<<< HEAD
   }
 
   let siblingsOfPerson = getSiblings(person); 
@@ -302,19 +297,6 @@ function displayFamily(person) {
   }
   else {
     familyInfo += "Siblings: none";
-=======
-    
-    familyInfo += "Parents: Deceased";
-    }
-  }
-  else {
-    familyInfo += "None \n";
-  }
-  
-  let siblingsOfPerson = getSiblings(person);
-  if (siblingsOfPerson.length >0) {
-    familyInfo += "Siblings: " + getNamesFromObject(siblingsOfPerson) + "\n";
->>>>>>> a93ac8a7d396463d4c5af6c58d3148abcdd22231
   }
   alert(familyInfo);
 }
