@@ -272,11 +272,25 @@ function displayFamily(person) {
   if (person.parents.length > 0) {
     familyInfo += "Parents: " + getNamesFromIds(person.parents) + "\n";
   } else {
+<<<<<<< HEAD
+    familyInfo += "Parents: Deceased \n" 
+  }
+
+  let listOfChildren = getChildren(person);
+  familyInfo += "Children: ";
+  for (let i = 0; i < listOfChildren.length; i++) { 
+      familyInfo += listOfChildren[i].firstName + " " + listOfChildren[i].lastName +  ", ";
+      if (i+1 == listOfChildren.length) {
+        familyInfo = familyInfo.slice(0,-2);
+      }
+    
+=======
     familyInfo += "Parents: Deceased";
   }
   let siblingsOfPerson = getSiblings(person); 
   if (siblingsOfPerson.length >0) {
     familyInfo += "Siblings: " + getNamesFromObject(siblingsOfPerson) + "\n";
+>>>>>>> 09edb1709c13c3374bc72cb34bc5662575fe1969
   }
   alert(familyInfo);
 }
@@ -299,6 +313,16 @@ function yesNo(input) {
   
 function chars(input) {
   return true; 
+}
+
+function getChildren(person) {
+  let personId = person.id;
+  let listOfChildren = data.filter(function(el) {
+    if (el.parents.includes(personId)) {
+      return true;
+    }
+  });
+  return listOfChildren;
 }
 
 function getDescendents(person, listOfDescendents) {
