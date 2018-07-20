@@ -9,7 +9,7 @@ function app(people) {
 
   switch (searchType) {
     case 'yes':
-      filteredPeople = searchByName(people)
+      filteredPeople = searchByName(people);
       break;
     case 'no':
       searchByTraits(people);
@@ -53,9 +53,10 @@ function searchByTraits(people) {
       break;
   }
 
-  let foundPerson = filteredPeople[0];
+  displayPeople(filteredPeople);  
+  //let foundPerson = filteredPeople[0];
 
-  mainMenu(foundPerson, people);
+  //mainMenu(foundPerson, people);
 
 }
 
