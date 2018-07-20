@@ -277,14 +277,17 @@ function displayFamily(person) {
 
   let listOfChildren = getChildren(person);
   familyInfo += "Children: ";
-  for (let i = 0; i < listOfChildren.length; i++) { 
+  if (listOfChildren.length) {
+    for (let i = 0; i < listOfChildren.length; i++) { 
       familyInfo += listOfChildren[i].firstName + " " + listOfChildren[i].lastName +  ", ";
       if (i+1 == listOfChildren.length) {
         familyInfo = familyInfo.slice(0,-2) + "\n";
       }
     
     familyInfo += "Parents: Deceased";
+    }
   }
+  
   let siblingsOfPerson = getSiblings(person);
   if (siblingsOfPerson.length >0) {
     familyInfo += "Siblings: " + getNamesFromObject(siblingsOfPerson) + "\n";
