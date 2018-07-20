@@ -283,6 +283,7 @@ function displayFamily(person) {
       if (i+1 == listOfChildren.length) {
         familyInfo = familyInfo.slice(0,-2) + "\n";
       }
+    }
   }
 
   let siblingsOfPerson = getSiblings(person); 
