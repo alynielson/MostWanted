@@ -278,7 +278,10 @@ function displayFamily(person) {
   let listOfChildren = getChildren(person);
   familyInfo += "Children: ";
   for (let i = 0; i < listOfChildren.length; i++) { 
-      familyInfo += listOfChildren[i].firstName + " " + listOfChildren[i].lastName +  "\n ";
+      familyInfo += listOfChildren[i].firstName + " " + listOfChildren[i].lastName +  ", ";
+      if (i+1 == listOfChildren.length) {
+        familyInfo = familyInfo.slice(0,-2);
+      }
     
   }
   alert(familyInfo);
