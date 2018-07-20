@@ -272,7 +272,7 @@ function displayFamily(person) {
   if (person.parents.length > 0) {
     familyInfo += "Parents: " + getNamesFromIds(person.parents) + "\n";
   } else {
-    familyInfo += "Parents: Deceased \n" 
+    familyInfo += "Parents: Deceased \n";
   }
 
   let listOfChildren = getChildren(person);
