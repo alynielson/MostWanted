@@ -166,13 +166,47 @@ function mainMenu(person, people) {
   }
 
   var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
-
+  
   switch (displayOption) {
     case "info":
-      displayPerson(person)
+      displayPerson(person);
+      getMoreInfo(person, people);
       break;
     case "family":
-      displayFamily(person)
+      displayFamily(person);
+      getMoreInfo(person, people);
+      break;
+    case "descendants":
+      let listOfDescendents = [];
+      let listOfDescendentObjects = getDescendents(person, listOfDescendents);
+      if (listOfDescendentObjects.length === 0) {
+        alert("This person has no descendants!");
+      } else {
+        displayPeople(listOfDescendentObjects);
+        getMoreInfo(person, people);
+      }
+      break;
+    case "restart":
+      app(people); // restart
+      break;
+    case "quit":
+      return; // stop execution
+    default:
+      return mainMenu(person, people); // ask again
+  }
+}
+
+function getMoreInfo (person, people) {
+
+  let moreInfo = prompt('What else would you like to know about ' + person.firstName + " " + person.lastName + "? Please enter 'info', 'family', or 'descendants', or enter 'restart' or 'quit'" )
+  switch (moreInfo) {
+    case "info":
+      displayPerson(person);
+      getMoreInfo(person, people);
+      break;
+    case "family":
+      displayFamily(person);
+      getMoreInfo(person, people);
       break;
     case "descendants":
       let listOfDescendents = [];
@@ -182,6 +216,7 @@ function mainMenu(person, people) {
       } else {
         displayPeople(listOfDescendentObjects);
       }
+      getMoreInfo(person, people);
       break;
     case "restart":
       app(people); // restart
@@ -232,15 +267,15 @@ function displayFamily(person) {
     let spouseId = person.currentSpouse;
     for (i = 0; i < data.length; i++) {
       if (spouseId === data[i].id) {
-        familyInfo += "spouse: " + data[i].firstName + " " + data[i].lastName + "\n";
+        familyInfo += "Spouse: " + data[i].firstName + " " + data[i].lastName + "\n";
       }
     }
 
   }
   if (person.parents.length > 0) {
-    familyInfo += "parents: " + getNamesFromIds(person.parents) + "\n";
+    familyInfo += "Parents: " + getNamesFromIds(person.parents) + "\n";
   } else {
-    familyInfo += "parents: Deceased"
+    familyInfo += "Parents: Deceased"
   }
   alert(familyInfo);
 }
