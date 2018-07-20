@@ -1,4 +1,3 @@
-
 function app(people) { 
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   let filteredPeople;
