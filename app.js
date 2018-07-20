@@ -57,9 +57,23 @@ function searchByTraits(people) {
     let foundPerson = filteredPeople[0];
     mainMenu(foundPerson, people);
   }
+  else if (filteredPeople.length === 0) {
+    alert("There is nobody with all of the traits you just searched for! Try again.");
+    searchByTraits(people);
+  }
   else {
     displayPeople(filteredPeople);
-    //searchByTraits(filteredPeople);
+    
+    let searchChoice = promptFor("Your search returned multiple people! Would you like to continue searching the filtered list? Enter 'yes' or 'no'.", yesNo).toLowerCase();
+    switch (searchChoice) {
+      case 'yes':
+      searchByTraits(filteredPeople); 
+      break;
+      case 'no':
+      app(people);
+      break;
+    }
+    
   }
 
 }
