@@ -296,7 +296,7 @@ function displayFamily(person) {
     }
   }
   else {
-    familyInfo += "Siblings: none";
+    familyInfo += "Siblings: None";
   }
   alert(familyInfo);
 }
@@ -368,7 +368,7 @@ function getSiblings(person) {
     for (let i=0;i<person.parents.length;i++) {
       if (el.parents.includes(person.parents[i])) {
         return true;
-      } 
+      }
     }
   });
   let siblingsOfPerson = listOfSiblings.filter(function(el) {
