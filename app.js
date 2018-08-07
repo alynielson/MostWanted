@@ -143,7 +143,7 @@ function searchByOccupation(people) {
 }
 
 function convertDobToAge(dob) {
-  let dobInMilliseconds = Math.abs(Date.parse(dob));
+  let dobInMilliseconds = Date.parse(dob);
   let minute = 1000 * 60;
   let hour = minute * 60;
   let day = hour * 24;
@@ -152,7 +152,7 @@ function convertDobToAge(dob) {
   let yearsFromDobTo1970 = dobInMilliseconds / year;
   let yearsSince1970 = Date.now() / year;
 
-  let age = Math.floor(yearsFromDobTo1970 + yearsSince1970);
+  let age = Math.floor(Math.abs(yearsFromDobTo1970 - yearsSince1970));
   return age;
 
 
